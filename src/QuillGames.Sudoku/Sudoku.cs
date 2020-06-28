@@ -72,7 +72,7 @@ namespace QuillGames.Sudoku
         }
 
         /// <summary>
-        /// Gets a single cell from the puzzle. Rows and columns are indexed by 1.
+        /// Gets a single cell from the puzzle. Rows and columns are indexed starting at 1.
         /// </summary>
         /// <remarks>
         /// Every access to a number should go through this method. If we follow
@@ -87,6 +87,10 @@ namespace QuillGames.Sudoku
             return _puzzle[(r * 9) + c];
         }
 
+        /// <summary>
+        /// Gets a single row from the puzzle. Rows are indexed starting at 1.
+        /// </summary>
+        /// <returns>A sequence of integers in the row.</returns>
         public int[] GetRow(int row)
         {
             int[] rowNumbers = new int[9];
@@ -98,6 +102,10 @@ namespace QuillGames.Sudoku
             return rowNumbers;
         }
 
+        /// <summary>
+        /// Gets a single column from the puzzle. Columns are indexed starting at 1.
+        /// </summary>
+        /// <returns>A sequence of integers in the column.</returns>
         public int[] GetCol(int col)
         {
             int[] colNumbers = new int[9];
@@ -109,6 +117,10 @@ namespace QuillGames.Sudoku
             return colNumbers;
         }
 
+        /// <summary>
+        /// Gets a single square from the puzzle. Squares are indexed starting at 1.
+        /// </summary>
+        /// <returns>A sequence of integers in the square.</returns>
         public int[] GetSquare(int square)
         {
             int[] squareNumbers = new int[9];

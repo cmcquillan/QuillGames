@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Runtime.CompilerServices;
 
 namespace QuillGames.Sudoku
 {
@@ -30,8 +32,21 @@ namespace QuillGames.Sudoku
          */
         public readonly bool[] _readOnly = new bool[81];
 
-        public Sudoku()
+        public Sudoku(int[] puzzleInitializer)
         {
+            if (puzzleInitializer.Length < _puzzle.Length)
+                throw new ArgumentException("Not enough spaces to initialize the puzzle.", nameof(puzzleInitializer));
+
+            for (int i = 0; i < _puzzle.Length; i++)
+            {
+                _puzzle[i] = puzzleInitializer[i];
+                _readOnly[i] = true;
+            }
+        }
+
+        public bool Check()
+        {
+            return false;
         }
     }
 }

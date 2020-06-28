@@ -4,6 +4,8 @@ namespace QuillGames.Sudoku
 {
     public class Sudoku
     {
+        public const int Unfilled = 0;
+
         /*
          * +--------------------------+
          * | 0| 1| 2| 3| 4| 5| 6| 7| 8|
@@ -16,8 +18,17 @@ namespace QuillGames.Sudoku
          * |63|64|65|66|67|68|69|70|71|
          * |72|73|74|75|76|77|78|79|80|
          * +--------------------------+
+         * 
+         * Represents the numbers in the puzzle.
+         * We will use 0 to denote an unfilled spot.
          */
         public readonly int[] _puzzle = new int[81];
+
+        /*
+         * Represents the numbers which are read-only. 
+         * These are the starter numbers for the puzzle
+         */
+        public readonly bool[] _readOnly = new bool[81];
 
         public Sudoku()
         {

@@ -7,8 +7,6 @@ namespace QuillGames.Sudoku
 {
     public class Sudoku
     {
-        public const int Unfilled = 0;
-
         /*
          *      Cols
          *        1  2  3  4  5  6  7  8  9
@@ -29,12 +27,6 @@ namespace QuillGames.Sudoku
          */
         public readonly int[] _puzzle = new int[81];
 
-        /*
-         * Represents the numbers which are read-only. 
-         * These are the starter numbers for the puzzle
-         */
-        public readonly bool[] _readOnly = new bool[81];
-
         public Sudoku(int[] puzzleInitializer)
         {
             if (puzzleInitializer.Length < _puzzle.Length)
@@ -43,7 +35,6 @@ namespace QuillGames.Sudoku
             for (int i = 0; i < _puzzle.Length; i++)
             {
                 _puzzle[i] = puzzleInitializer[i];
-                _readOnly[i] = true;
             }
         }
 

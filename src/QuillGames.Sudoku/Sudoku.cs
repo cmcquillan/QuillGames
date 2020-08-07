@@ -34,13 +34,16 @@ namespace QuillGames.Sudoku
 
             for (int i = 0; i < _puzzle.Length; i++)
             {
+                if (puzzleInitializer[i] > 9 || puzzleInitializer[i] < 0)
+                    throw new ArgumentException("All numbers must be be 0 (no entry), or 1 thru 9.");
+
                 _puzzle[i] = puzzleInitializer[i];
             }
         }
 
         public bool Check()
         {
-            bool IsValid(int[] numbers) => numbers.Distinct().Count() == 9;
+            bool IsValid(int[] numbers) => numbers.Where(p => p != 0).Distinct().Count() <= 9;
 
             // Assume valid until we see a bad row, col, or square.
             bool valid = true;

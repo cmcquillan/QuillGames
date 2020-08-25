@@ -35,3 +35,4 @@ jobs:
             allow_empty_commit: false
             keep_files: false
             force_orphan: true
+            cname: games.quill.codes

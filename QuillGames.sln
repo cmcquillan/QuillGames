@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{DC49CB5E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuillGames.Sudoku.Tests", "tests\QuillGames.Sudoku.Tests\QuillGames.Sudoku.Tests.csproj", "{41AD2DF3-F9C3-4DC9-9ECF-B17F5583EA9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuillGamesPlatform", "src\QuillGamesPlatform\QuillGamesPlatform.csproj", "{422B59AA-6D7C-4313-8CE8-A06A702D9D63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,9 +50,22 @@ Global
 		{41AD2DF3-F9C3-4DC9-9ECF-B17F5583EA9C}.Release|x64.Build.0 = Release|Any CPU
 		{41AD2DF3-F9C3-4DC9-9ECF-B17F5583EA9C}.Release|x86.ActiveCfg = Release|Any CPU
 		{41AD2DF3-F9C3-4DC9-9ECF-B17F5583EA9C}.Release|x86.Build.0 = Release|Any CPU
+		{422B59AA-6D7C-4313-8CE8-A06A702D9D63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{422B59AA-6D7C-4313-8CE8-A06A702D9D63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{422B59AA-6D7C-4313-8CE8-A06A702D9D63}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{422B59AA-6D7C-4313-8CE8-A06A702D9D63}.Debug|x64.Build.0 = Debug|Any CPU
+		{422B59AA-6D7C-4313-8CE8-A06A702D9D63}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{422B59AA-6D7C-4313-8CE8-A06A702D9D63}.Debug|x86.Build.0 = Debug|Any CPU
+		{422B59AA-6D7C-4313-8CE8-A06A702D9D63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{422B59AA-6D7C-4313-8CE8-A06A702D9D63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{422B59AA-6D7C-4313-8CE8-A06A702D9D63}.Release|x64.ActiveCfg = Release|Any CPU
+		{422B59AA-6D7C-4313-8CE8-A06A702D9D63}.Release|x64.Build.0 = Release|Any CPU
+		{422B59AA-6D7C-4313-8CE8-A06A702D9D63}.Release|x86.ActiveCfg = Release|Any CPU
+		{422B59AA-6D7C-4313-8CE8-A06A702D9D63}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C8AF1FC5-E4EC-4485-B4A1-AC93E9A9FE91} = {ADEFA942-D7B8-43B1-A220-5EE4E48F8E72}
 		{41AD2DF3-F9C3-4DC9-9ECF-B17F5583EA9C} = {DC49CB5E-06E2-4D60-A4E0-15E601A53CBB}
+		{422B59AA-6D7C-4313-8CE8-A06A702D9D63} = {ADEFA942-D7B8-43B1-A220-5EE4E48F8E72}
 	EndGlobalSection
 EndGlobal

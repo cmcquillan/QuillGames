@@ -43,7 +43,13 @@ namespace QuillGames.Sudoku
 
         public bool Check()
         {
-            bool IsValid(int[] numbers) => numbers.Where(p => p != 0).Distinct().Count() <= 9;
+            bool IsValid(int[] numbers)
+            {
+                var count = numbers.Where(p => p != 0).Count();
+                var distinct = numbers.Where(p => p != 0).Distinct().Count();
+
+                return distinct == count;
+            };
 
             // Assume valid until we see a bad row, col, or square.
             bool valid = true;
@@ -65,6 +71,11 @@ namespace QuillGames.Sudoku
             return valid;
         }
 
+        public bool Completed()
+        {
+            return _puzzle.All(p => p > 0);
+        }
+
         /// <summary>
         /// Gets a single cell from the puzzle. Rows and columns are indexed starting at 1.
         /// </summary>
@@ -79,6 +90,15 @@ namespace QuillGames.Sudoku
         {
             int r = row - 1, c = col - 1;
             return _puzzle[(r * 9) + c];
+        }
+
+        public void SetCell(int row, int col, int val)
+        {
+            if (val < 0 || val > 9)
+                throw new ArgumentException("Value must be zero (clear cell) or 1 thru 9.");
+
+            int r = row - 1, c = col - 1;
+            _puzzle[(r * 9) + c] = val;
         }
 
         /// <summary>

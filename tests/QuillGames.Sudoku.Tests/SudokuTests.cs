@@ -6,6 +6,19 @@ namespace QuillGames.Sudoku.Tests
     public class SudokuTests
     {
         [Fact]
+        public void Sudoku_Check_ValidPartiallyFinishedPuzzlesShouldCheckAsTrue()
+        {
+            // Arrange
+            var puzzle = new Sudoku(ValidPuzzles.PartiallyFinished1);
+
+            // Act
+            var result = puzzle.Check();
+
+            // Assert
+            Assert.True(result);
+        }
+
+        [Fact]
         public void Sudoku_Check_ValidPuzzlesShouldCheckAsTrue()
         {
             // Arrange
@@ -135,5 +148,6 @@ namespace QuillGames.Sudoku.Tests
             Assert.Equal(4, square[7]);
             Assert.Equal(3, square[8]);
         }
+
     }
 }

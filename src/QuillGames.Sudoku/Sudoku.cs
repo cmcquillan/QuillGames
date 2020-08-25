@@ -7,8 +7,6 @@ namespace QuillGames.Sudoku
 {
     public class Sudoku
     {
-        public const int Unfilled = 0;
-
         /*
          *      Cols
          *        1  2  3  4  5  6  7  8  9
@@ -29,12 +27,6 @@ namespace QuillGames.Sudoku
          */
         public readonly int[] _puzzle = new int[81];
 
-        /*
-         * Represents the numbers which are read-only. 
-         * These are the starter numbers for the puzzle
-         */
-        public readonly bool[] _readOnly = new bool[81];
-
         public Sudoku(int[] puzzleInitializer)
         {
             if (puzzleInitializer.Length < _puzzle.Length)
@@ -42,14 +34,22 @@ namespace QuillGames.Sudoku
 
             for (int i = 0; i < _puzzle.Length; i++)
             {
+                if (puzzleInitializer[i] > 9 || puzzleInitializer[i] < 0)
+                    throw new ArgumentException("All numbers must be be 0 (no entry), or 1 thru 9.");
+
                 _puzzle[i] = puzzleInitializer[i];
-                _readOnly[i] = true;
             }
         }
 
         public bool Check()
         {
-            bool IsValid(int[] numbers) => numbers.Distinct().Count() == 9;
+            bool IsValid(int[] numbers)
+            {
+                var count = numbers.Where(p => p != 0).Count();
+                var distinct = numbers.Where(p => p != 0).Distinct().Count();
+
+                return distinct == count;
+            };
 
             // Assume valid until we see a bad row, col, or square.
             bool valid = true;
@@ -71,6 +71,11 @@ namespace QuillGames.Sudoku
             return valid;
         }
 
+        public bool Completed()
+        {
+            return _puzzle.All(p => p > 0);
+        }
+
         /// <summary>
         /// Gets a single cell from the puzzle. Rows and columns are indexed starting at 1.
         /// </summary>
@@ -85,6 +90,15 @@ namespace QuillGames.Sudoku
         {
             int r = row - 1, c = col - 1;
             return _puzzle[(r * 9) + c];
+        }
+
+        public void SetCell(int row, int col, int val)
+        {
+            if (val < 0 || val > 9)
+                throw new ArgumentException("Value must be zero (clear cell) or 1 thru 9.");
+
+            int r = row - 1, c = col - 1;
+            _puzzle[(r * 9) + c] = val;
         }
 
         /// <summary>
